@@ -1,0 +1,45 @@
+Ex1:
+mysql-ctl start
+mysql -u dm87
+
+Ex2:
+create database decodemtl_test;
+create database decodemtl_addressbook;
+
+Ex3:
+drop database decodemtl_test;
+
+Ex4:
+show databases;
+
+Ex5:
+use decodemtl_addressbook;
+create table Account (`date` timestamp);
+create table AddressBook (`col1` INT);
+create table Entry (`col1` INT);
+create table Test (`col1` INT);
+
+Ex6: 
+drop table Test;
+
+Ex7:
+show tables in decodemtl_addressbook;
+
+Ex8:
+drop table Account;
+drop table Entry;
+drop table AddressBook;
+create table Account (`id` INT primary key auto_increment, `email` VARCHAR(255), `password` VARCHAR(40), `createdOn` DATETIME, `modifiedOn` DATETIME);
+create table AddressBook (`id` INT primary key auto_increment, `accountId` INT, `name` VARCHAR(255), `createdOn` DATETIME, `modifiedOn` DATETIME);
+create table Entry (`id` INT primary key auto_increment, `addressBookId` INT, `firstName` VARCHAR(255), `lastName` VARCHAR(255), `birthday` DATETIME, `type` ENUM('home', 'work', 'other'), `subtype` ENUM('phone', 'address', 'email'), contentLineOne VARCHAR(255), contentLineTwo VARCHAR(255), contentLineThree VARCHAR(255), contentLineFour VARCHAR(255), contentLineFive VARCHAR(255)); 
+
+Ex9:
+create database barnStats;
+use barnStats;
+create table Inventory(`id` INT primary key auto_increment, `status` ENUM('alive','dead'), `type` ENUM('rooster', 'hen', 'chick'), `birthDate` DATETIME, `deathDate` DATETIME);
+
+Ex10:
+create database hotelDecodeMtl;
+use hotelDecodeMtl;
+create table roomInventory (`roomNumber` INT primary key auto_increment, `state` ENUM("available","reserved","not_rentable"), `reservationId` INT, `sleepingCapacity` INT, `floorLevel` INT, `hasKitchen` BOOLEAN, `windowCount` INT, `floorType` ENUM("carpet","hardwood"));
+create table reservations (`reservationId` INT primary key auto_increment, `checkIn` DATETIME, `checkOut` DATETIME, `roomNumber` INT);
